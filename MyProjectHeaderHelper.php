@@ -50,6 +50,7 @@ class MyProjectHeaderHelper extends Base
         return $this->template->render('project_header/header', array(
             'project' => $project,
             'filters' => $filters,
+            'tags_list' => $this->tagModel->getAssignableList($project['id'], false),
             'categories_list' => $this->categoryModel->getList($project['id'], false),
             'colors_list' => $this->colorModel->getList(false, true),
             'users_list' => $this->projectUserRoleModel->getAssignableUsersList($project['id'], false),

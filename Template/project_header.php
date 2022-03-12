@@ -18,6 +18,7 @@
                 'users_list' => isset($users_list) ? $users_list : array(),
                 'colors_list' => isset($colors_list) ? $colors_list : array(),
                 'categories_list' => isset($categories_list) ? $categories_list : array(),
+                'tags_list' => isset($tags_list) ? $tags_list : array(),
             )) ?>
         </div>
     <?php endif ?>
