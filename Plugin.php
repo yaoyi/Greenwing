@@ -37,6 +37,7 @@ class Plugin extends Base {
 		$this->template->setTemplateOverride( 'user_list/user_title', 'Greenwing:user_title' );
 		$this->template->setTemplateOverride( 'header/user_dropdown', 'Greenwing:user_dropdown' );
 		$this->template->setTemplateOverride( 'task_list/task_avatars', 'Greenwing:task_avatars' );
+    $this->template->setTemplateOverride( 'task_list/task_icons', 'Greenwing:task_icons' );
 		$this->template->setTemplateOverride( 'user_view/profile', 'Greenwing:profile' );
 		$this->template->setTemplateOverride( 'auth/index', 'Greenwing:login' );
 		$this->template->setTemplateOverride( 'password_reset/create', 'Greenwing:password_reset' );
