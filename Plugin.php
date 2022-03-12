@@ -3,6 +3,8 @@
 namespace Kanboard\Plugin\Greenwing;
 
 use Kanboard\Core\Plugin\Base;
+use Kanboard\Core\Translator;
+use Kanboard\Plugin\Greenwing\Action\TaskAssignDueDate;
 
 class Plugin extends Base {
 
@@ -11,6 +13,8 @@ class Plugin extends Base {
 		global $GreenwingConfig;
 
 		require_once('plugins/Greenwing/Config.php');
+
+    $this->actionManager->register(new TaskAssignDueDate($this->container));
 
 		if (isset($GreenwingConfig['logo'])) {
 			$this->template->setTemplateOverride('header/title', 'Greenwing:logo');
@@ -66,6 +70,12 @@ class Plugin extends Base {
 
 		$this->hook->on( "template:layout:css", array( "template" => "plugins/Greenwing/dist/" . $manifest['main.css'] ) );
 	}
+
+  public function onStartup()
+  {
+    Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
+  }
+
 
 	public function getPluginName() {
 		return 'Greenwing';
