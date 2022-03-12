@@ -19,6 +19,7 @@ class Plugin extends Base {
 		$this->template->setTemplateOverride( 'board/table_container', 'Greenwing:table_container' );
 		$this->template->setTemplateOverride( 'task/details', 'Greenwing:task_details' );
 		$this->template->setTemplateOverride( 'task/layout', 'Greenwing:task_layout' );
+    $this->template->setTemplateOverride( 'task/dropdown', 'Greenwing:dropdown' );
 		$this->template->setTemplateOverride( 'project_header/header', 'Greenwing:project_header' );
 		$this->template->setTemplateOverride( 'board/task_private', 'Greenwing:task_private' );
 		$this->template->setTemplateOverride( 'board/task_public', 'Greenwing:task_public' );

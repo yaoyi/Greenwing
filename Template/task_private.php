@@ -90,7 +90,7 @@
                     </ul>
                 </div>
             <?php endif ?>
-            
+
 
             <?= $this->render('board/task_footer', array(
                 'task' => $task,
