@@ -22,7 +22,7 @@
             <span class="board-column-title">
                 <?= $this->text->e($column['title']) ?>
             </span>
-            
+
             <?php if ($column['nb_tasks'] > 0): ?>
                 <span class="task-count <?= $column['task_limit'] > 0 && $column['column_nb_tasks'] > $column['task_limit'] ? 'task-count-limit' : '' ?>"">
                 <?php if ($column['task_limit'] > 0): ?>
@@ -63,6 +63,12 @@
 
                             <?php if ($column['nb_tasks'] > 0 && $this->user->hasProjectAccess('TaskModificationController', 'update', $column['project_id'])): ?>
                                 <li>
+                                    <?= $this->url->icon('sort-numeric-asc', t('Reorder this column by id (ASC)'), 'TaskReorderController', 'reorderColumn', ['sort' => 'id', 'direction' => 'asc', 'project_id' => $column['project_id'], 'column_id' => $column['id'], 'swimlane_id' => $swimlane['id']]) ?>
+                                </li>
+                                <li>
+                                    <?= $this->url->icon('sort-numeric-desc', t('Reorder this column by id (DESC)'), 'TaskReorderController', 'reorderColumn', ['sort' => 'id', 'direction' => 'desc', 'project_id' => $column['project_id'], 'column_id' => $column['id'], 'swimlane_id' => $swimlane['id']]) ?>
+                                </li>
+                                <li>
                                     <?= $this->url->icon('sort-numeric-asc', t('Reorder this column by priority (ASC)'), 'TaskReorderController', 'reorderColumn', ['sort' => 'priority', 'direction' => 'asc', 'project_id' => $column['project_id'], 'column_id' => $column['id'], 'swimlane_id' => $swimlane['id']]) ?>
                                 </li>
                                 <li>
@@ -87,7 +93,7 @@
                     </span>
                 <?php endif ?>
             </div>
-            
+
             <!-- <span class="pull-right">
                 <?php if ($swimlane['nb_swimlanes'] > 1 && ! empty($column['column_score'])): ?>
                     <span title="<?= t('Total score in this column across all swimlanes') ?>">
