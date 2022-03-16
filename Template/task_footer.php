@@ -1,5 +1,5 @@
 <div class="task-board-icons">
-  
+
     <div class="task-board-icons-row-wrapper">
         <div class="task-board-icons-row">
             <?php if ($task['is_milestone'] == 1): ?>
@@ -80,6 +80,8 @@
                 <?= $this->app->tooltipLink('<i class="fa fa-file-text-o"></i>', $this->url->href('BoardTooltipController', 'description', array('task_id' => $task['id'], 'project_id' => $task['project_id']))) ?>
             <?php endif ?>
 
+            <?= $this->task->renderPriority($task['priority']) ?>
+
             <?php if ($task['is_active'] == 1): ?>
                 <div class="task-icon-age">
                     <span title="<?= t('Task age in days')?>" class="task-icon-age-total"><?= $this->dt->age($task['date_creation']) ?></span>
@@ -94,6 +96,6 @@
     </div>
 
     <?= $this->render('board/task_avatar', array('task' => $task)) ?>
-</div>  
+</div>
 
 <?= $this->hook->render('template:board:task:footer', array('task' => $task)) ?>
